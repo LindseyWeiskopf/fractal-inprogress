@@ -37,15 +37,22 @@ def kochSnowflake(degree, unit):
 def sierpinski(degree, unit):
     if degree == 0:
         for i in range(0,3):
-            t.fd(unit)
-            t.left(120)
+            t.back(unit)
+            t.right(120)
     else:
         sierpinski(degree-1, unit/2)
+        t.back(unit/2)
+        sierpinski(degree-1, unit/2)
+        t.fd(unit/2)
         t.right(60)
+        t.back(unit/2)
+        t.left(60)
         sierpinski(degree-1, unit/2)
-        t.bk(unit/2)
-        sierpinski(degree-1, unit/2)
-#base case works
+
+        t.right(60)
+        t.fd(unit/2)
+        t.left(60)
+
 
 #mandelbrot
 #sierpinski carpet
